@@ -225,7 +225,7 @@ public class HMMUtil {
         //double[] pi = hmmModel.getPi();
         //double[][] a = hmmModel.getA();
         //double[][] b = hmmModel.getB();
-        double prob = 0;  //记录P(O|m);
+        double prob = 0.0;  //记录P(O|m);
         int observe = 0;  //记录最大可能的第T个观测值；
 
         for (int o=0; o<observeSize; o++) {
