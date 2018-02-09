@@ -63,6 +63,7 @@ public class HMMUtil {
             beta[i][T-1] = 1.0;
         }
 
+        //递推
         for (int t=T-2; t>=0; t--){
             for (int i=0; i<hiddenSize; i++){
 
@@ -99,6 +100,7 @@ public class HMMUtil {
 
         }
 
+        //第T+1项记录前T项之和
         double sum = 0.0;
         for (int k=0; k<T; k++) {
             sum += gamma[k];
@@ -142,6 +144,7 @@ public class HMMUtil {
             sigma[t] = num/denom;
         }
 
+        //第T项记录前T-1项之和
         double sum = 0.0;
         for (int k=0; k<T-1; k++) {
             sum += sigma[k];
@@ -164,7 +167,7 @@ public class HMMUtil {
 
         double[][] delta = new double[hiddenSize][T];
         int[][] phi = new int[hiddenSize][T];
-        int[] path = new int[T];
+        int[] path = new int[T]; //记录最优路径
 
         //初始化delta以及phi
         for (int i=0; i<hiddenSize; i++){
